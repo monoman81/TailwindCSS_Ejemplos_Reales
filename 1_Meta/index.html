@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta: compra gafas inteligentes y de VR</title>
+    
+    <link rel="stylesheet" href="./style.min.css">
+    
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://kit.fontawesome.com/531df77125.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="p-3 flex gap-6 justify-center text-xs bg-secondary text-white">
+        <div class="flex gap-1 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+            </svg>
+            <span>Envio gratis</span>
+        </div>
+        <div class="flex gap-1 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <span>Prueba sin compromiso</span>
+        </div>
+        <div class="flex gap-1 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+            </svg>
+            <span>Garantia</span>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header x-data = "{ menuQuest:false, menuRayBan:false, menuAsistencia:false, topMenu:false }">
+        <div class="py-4">
+            <div class="container flex items-center justify-between text-sm">
+                <div class="flex items-center gap-12">
+                    <div><img src="imagenes/meta-color.svg" alt="Logo de Meta" class="w-8 h-auto"></div>
+                    <div class="flex items-center gap-6">
+                        <div @mouseover="topMenu = true, menuQuest = true, menuRayBan = false, menuAsistencia = false"
+                             @click.away="topMenu = false, menuQuest = false"
+                             class="flex items-center gap-1 hover:underline hover:underline-offset-4 hover:decoration-[#418af7]"
+                             :class="{ 'underline underline-offset-4 decoration-[#418af7]' : menuQuest === true }"
+                        >
+                            <span>Meta Quest</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"
+                                 class="size-3" :class="{ 'rotate-180 transition duration-500' :  menuQuest === true }">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </div>
+                        <div @mouseover="topMenu = true, menuQuest = false, menuRayBan = true, menuAsistencia = false"
+                             @click.away="topMenu = false, menuRayBan = false"
+                             class="flex items-center gap-1 hover:underline hover:underline-offset-4 hover:decoration-[#418af7]"
+                             :class="{ 'underline underline-offset-4 decoration-[#418af7]' : menuRayBan === true }"
+                        >
+                            <span>Ray-Ban | Meta</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"
+                                 class="size-3" :class="{ 'rotate-180 transition duration-500' :  menuRayBan === true }">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-5">
+                    <div class="flex items-center gap-6">
+                        <div>
+                            <a href="#" title="Leer mas sobre meta" class="hover:underline underline-offset-4 decoration-[#418af7]">Informacion sobre Meta</a>
+                        </div>
+                        <div @mouseover="topMenu = true, menuQuest = false, menuRayBan = false, menuAsistencia = true"
+                             @click.away="topMenu = false, menuAsistencia = false"
+                             class="flex items-center gap-1 hover:underline hover:underline-offset-4 hover:decoration-[#418af7]"
+                             :class="{ 'underline underline-offset-4 decoration-[#418af7]' : menuAsistencia === true }"
+                        >
+                            Asistencia
+                        </div>
+                    </div>
+                    <div class="p-2 border border-gray-200 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <span class="text-gray-400 font-medium">Buscar en meta store</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                             class="size-5 hover:text-[#418af7] hover:cursor-pointer">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                        </svg>
+                    
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                             class="size-5 hover:text-[#418af7] hover:cursor-pointer">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MENU !-->
+        <div x-show="topMenu" class="h-96 border-t border-gray-200 bg-white">
+            <div x-show="menuQuest" class="h-full max-w-6xl mx-auto flex py-8">
+                <div class="px-5 flex-auto flex gap-x-16 text-xl">
+                    <ul class="flex flex-col gap-3 w-60">
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Informacion General sobre Meta Quest</li>
+                        <li class="flex items-center gap-2">
+                            <span class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Quest 3</span>
+                            <span class="bg-[#f5ebfa] text-[#a121ce] text-xs font-bold py-1 px-2 rounded-md">Novedad</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Quest 2</span>
+                            <span class="bg-[#f5ebfa] text-[#a121ce] text-xs font-bold py-1 px-2 rounded-md">Oferta especial</span>
+                        </li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Quest Pro</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Compara Dispositivos</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Accesorios</li>
+                    </ul>
+                    <ul class="flex flex-col gap-3">
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Aplicaciones y juegos</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Quest+</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Experiencias de VR</li>
+                    </ul>
+                </div>
+            </div>
+            <div x-show="menuRayBan" class="h-full max-w-6xl mx-auto flex py-8">
+                <div class="px-5 flex-auto flex gap-x-16 text-xl">
+                    <ul class="flex flex-col gap-3">
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Informacion general sobre Ray-Ban | Meta</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Wayfarer</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Headliner</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Explora todo</li>
+                    </ul>
+                </div>
+            </div>
+            <div x-show="menuAsistencia" class="h-full max-w-6xl mx-auto flex py-8">
+                <div class="px-5 flex-auto flex gap-x-16 text-xl justify-end">
+                    <ul class="flex flex-col gap-3 w-60 text-left">
+                        <li class="text-base font-bold text-gray-500">Servicios de ayuda de la tienda y los dispositivos</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Encuentra tu pedido</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Quest y Quest Pro</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Portal</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Gafas inteligentes</li>
+                    </ul>
+                    <ul class="flex flex-col gap-3 text-left">
+                        <li class="text-base font-bold text-gray-500">Servicios de ayuda de Meta</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Centro de Cuentas</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Pay</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Politicas</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Experiencias conectadas</li>
+                    </ul>
+                    <ul class="flex flex-col gap-3 text-left">
+                        <li class="text-base font-bold text-gray-500">Servicios de ayuda de las aplicaciones</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Meta Horizon</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Facebook</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Messenger</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Instagram</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">WhatsApp</li>
+                        <li class="hover:underline hover:underline-offset-4 hover:decoration-1">Workplace</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    
+    <!-- CONTENT -->
+    <main>
+        <!-- HERO PRINCIPAL -->
+        <div class="relative">
+            <div class="container py-20 relative z-30">
+                <div class="max-w-[23rem] flex flex-col gap-8 text-white">
+                    <h1 class="text-6xl font-semibold leading-light">Presentamos Meta Quest 3</h1>
+                    <p class="text-lg">
+                        Sumergete en experiencias increibles con nuestras nuevas e impactantes gafas de realidad
+                        mixta, desde $549.99.
+                    </p>
+                    <span class="flex justify-between items-center">
+                        <a href="#" class="rounded-full py-4 px-12 bg-meta text-sm text-white font-bold hover:bg-meta-light">
+                            Compra ahora
+                        </a>
+                        <a href="#" class="flex items-center gap-x-2 text-sm group">
+                            <span class="rounded-full p-2 bg-gray-200 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                     stroke="currentColor" class="size-4 text-[#1d65c1] group-hover:text-[#3d7cce]">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                            <span class="group-hover:underline underline-offset-8">Mas informacion</span>
+                        </a>
+                    </span>
+                </div>
+                <div class="text-white text-sm absolute bottom-4">
+                    Ghostbusters: Rise of the Ghost Lord
+                </div>
+            </div>
+            <div class="absolute top-0 z-20 opacity-[95%] w-full h-full bg-gradient-to-r from-gray-800 from-35% bg-transparent">
+            </div>
+            <video autoplay loop muted class="absolute top-0 z-10 w-auto min-w-full object-cover max-h-full max-w-none aspect-video">
+                <source src="./video/earth.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!-- PRODUCTOS -->
+        <div class="container min-h-72 flex justify-center items-center py-12">
+            <div class="flex flex-col justify-center items-center w-full gap-y-4">
+                <h2 class="text-3xl font-bold">Compra los productos de Meta</h2>
+                <p class="text-sm">El futuro de la realidad virtual y la realidad aumentada ya esta aqui</p>
+                <div class="mt-6 grid grid-cols-3 gap-4 w-full justify-items-center">
+                    <div class="flex flex-col justify-center text-center gap-y-8">
+                        <img src="imagenes/lentes.webp" alt="" class="h-24 w-auto">
+                        <h3 class="font-semibold">Meta Quest</h3>
+                        <a href="#" class="py-4 px-8 border-2 border-gray-300 rounded-full text-[#1d65c1] font-medium">
+                            Comprar
+                        </a>
+                    </div>
+                    <div class="flex flex-col justify-center text-center gap-y-8">
+                        <img src="imagenes/meta-quest3s.webp" alt="" class="h-24 w-auto">
+                        <h3 class="font-semibold">Accesorios de Meta Quest</h3>
+                        <a href="#" class="py-4 px-8 border-2 border-gray-300 rounded-full text-[#1d65c1] font-medium">
+                            Comprar
+                        </a>
+                    </div>
+                    <div class="flex flex-col justify-center text-center gap-y-8">
+                        <img src="imagenes/apps.jpg" alt="" class="h-24 w-auto">
+                        <h3 class="font-semibold">Ray-Ban | Gafas inteligentes de Meta</h3>
+                        <a href="#" class="py-4 px-8 border-2 border-gray-300 rounded-full text-[#1d65c1] font-medium">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- HERO SECUNDARIO -->
+        <div class="bg-gray-800 min-h-[32rem] max-h-[32rem] relative">
+            <div class="min-h-[32rem] flex items-center text-white">
+                <div class="max-w-7xl mx-auto w-full relative z-20">
+                    <div class="flex flex-col items-start max-w-[60%] gap-8">
+                        <img src="https://lookaside.fbsbx.com/elementpath/media/?media_id=1122867242225694&version=1760671443&transcode_extension=webp"
+                             alt="" class="h-12 w-auto">
+                        <h2 class="text-5xl font-medium leading-tight">La proxima generacion de gafas inteligentes</h2>
+                        <p class="max-w-96">Captura, transmite en directo y conecta mediante mensajes y llamadas sin usar las manos</p>
+                        <a href="#" class="flex items-center gap-x-2 text-sm group">
+                        <span class="rounded-full p-2 bg-gray-200 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                 stroke="currentColor" class="size-4 text-[#1d65c1] group-hover:text-[#3d7cce]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                            <span class="group-hover:underline underline-offset-8">Mas informacion</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <img src="./imagenes/banner.jpg" alt="" class="absolute top-0 z-10 h-full min-w-full object-cover">
+        </div>
+        <!-- JUEGOS -->
+        <div class="max-w-7xl mx-auto py-12">
+            <div class="flex flex-col min-w-full gap-y-12 items-center">
+                <h2 class="text-5xl font-semibold">Explora juegos y experiencias en Meta Quest</h2>
+                <a href="#" class="text-[#1d65c1] font-medium">Explora aplicaciones y juegos</a>
+                <div class="grid grid-cols-5 gap-x-6">
+                    <div>
+                        <img src="./imagenes/Vader.jpg" alt="">
+                        <h3 class="mt-2">Vader Inmortal</h3>
+                    </div>
+                    <div>
+                        <img src="./imagenes/starwars.jpg" alt="">
+                        <h3 class="mt-2">Star Wars</h3>
+                    </div>
+                    <div>
+                        <img src="./imagenes/amongus.jpg" alt="">
+                        <h3 class="mt-2">Among Us</h3>
+                    </div>
+                    <div>
+                        <img src="./imagenes/walkingdead.jpg" alt="">
+                        <h3 class="mt-2">Walking Dead</h3>
+                    </div>
+                    <div>
+                        <img src="./imagenes/saber.jpg" alt="">
+                        <h3 class="mt-2">Saber</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BLOG -->
+        <div class="max-w-7xl mx-auto py-12 text-gray-800 font-semibold">
+            <div class="text-sm mb-6">
+                <i class="fa fa-chevron-down text-md"></i> <span>Ultimas noticias</span>
+            </div>
+            <div class="grid grid-cols-3 gap-x-6">
+                <div>
+                    <img src="./imagenes/metaconnect2025.webp" alt="">
+                    <h3 class="text-2xl mt-6">Meta Quest 3: las primeras gafas de realidad mixta para un mercado de masas</h3>
+                </div>
+                <div>
+                    <img src="./imagenes/metarayban.webp" alt="">
+                    <h3 class="text-2xl mt-6">Presentamos la nueva generacion de Ray-Ban | Coleccion de gafas inteligentes de meta</h3>
+                </div>
+                <div>
+                    <img src="./imagenes/metaconnect2025.webp" alt="">
+                    <h3 class="text-2xl mt-6">Resumen de presentacion de Meta Connect 2023</h3>
+                </div>
+            </div>
+        </div>
+        <!-- NEWSLETTER -->
+        <div class="pt-32 pb-32">
+            <div class="max-w-7xl mx-auto grid grid-cols-3 gap-8 text-sm text-gray-700">
+                <div class="uppercase">Mantente al dia de todas las novedades</div>
+                <div class="col-span-2">
+                    <div>
+                        <form action="#" class="flex items-center justify-between gap-3">
+                            <input type="text" placeholder="Recibe notificaciones de meta"
+                                   class="w-full border border-gray-200 py-5 px-3 text-gray-900 placeholder-gray-700 font-medium">
+                            <button type="submit" class="border-2 border-gray-200 rounded-full py-3 px-4 text-gray-500 font-medium">Registrarte</button>
+                        </form>
+                    </div>
+                    <div class="mt-4 space-y-4 text-xs">
+                        <p>Al registrarte, aceptas recibir novedades y mensajes de marketing (p. ej., correos
+                            electronicos, medios sociales, etc.) de Meta sobre sus productos y servicios existentes
+                            y futuros.
+                        </p>
+                        <p>
+                            Puedes retirar tu consentimiento y cancelar la suscripcion cuando quieras haciendo click
+                            en el enlace de cancelacion de la suscripcion que se incluye en nuestros mensajes.
+                        </p>
+                        <p>
+                            Tu suscripcion esta sujeta a las Condiciones y la Politica de privacidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-300 pt-12">
+        <div class="max-w-7xl mx-auto text-sm grid grid-cols-[33.33333%_1fr_1fr_1fr] gap-x-1 gap-y-32">
+            <div class="flex flex-col gap-y-10">
+                <span><img src="imagenes/meta-color.svg" alt="Logo de Meta" class="w-8 h-auto"></span>
+                <span class="flex items-center gap-8 text-gray-500">
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-youtube text-xl"></i></a>
+                </span>
+            </div>
+            <div class="text-gray-600 space-y-10">
+                <ul>
+                    <li class="font-bold">Politicas y condiciones del sitio</li>
+                    <li><a href="#" class="hover:underline">Normas comunitarias</a></li>
+                    <li><a href="#" class="hover:underline">Politica de privacidad</a></li>
+                    <li><a href="#" class="hover:underline">Condiciones</a></li>
+                    <li><a href="#" class="hover:underline">Politica de cookies</a></li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Realidad virtual</li>
+                    <li><a href="#" class="hover:underline">Comprar Meta Quest</a></li>
+                    <li><a href="#" class="hover:underline">Meta Quest 2 reacondicionadas</a></li>
+                    <li><a href="#" class="hover:underline">VR for Good</a></li>
+                    <li><a href="#" class="hover:underline">Foros</a></li>
+                    <li><a href="#" class="hover:underline">Recomienda Meta Quest 2</a></li>
+                    <li><a href="#" class="hover:underline">Blog</a></li>
+                    <li><a href="#" class="hover:underline">Creadores</a></li>
+                    <li><a href="#" class="hover:underline">Descargar SDK</a></li>
+                    <li><a href="#" class="hover:underline">Desarrolladores</a></li>
+                    <li><a href="#" class="hover:underline">Programa de socios "Made for Meta"</a></li>
+                    <li><a href="#" class="hover:underline">Informacion sobre seguridad para padres y preadolescentes</a></li>
+                    <li><a href="#" class="hover:underline">Infomacion sobe salud y seguridad de Meta Quest</a></li>
+                    <li><a href="#" class="hover:underline">Centro de seguridad de Meta Quest</a></li>
+                    <li><a href="#" class="hover:underline">Meta for Work</a></li>
+                    <li><a href="#" class="hover:underline">Avatares de Meta</a></li>
+                </ul>
+            </div>
+            <div class="text-gray-600 space-y-10">
+                <ul>
+                    <li class="font-bold">Gafas inteligentes</li>
+                    <li><a href="#" class="hover:underline">Comprar gafas inteligentes Ray-ban Meta</a></li>
+                    <li><a href="#" class="hover:underline">Ray-Ban Stories</a></li>
+                    <li><a href="#" class="hover:underline">Informacion de privacidad</a></li>
+                    <li><a href="#" class="hover:underline">Paises en los que esta disponible</a></li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Asistencia de la tienda e informacion legal</li>
+                    <li><a href="#" class="hover:underline">Servicio de ayuda de nuestra tienda</a></li>
+                    <li><a href="#" class="hover:underline">Estado del pedido</a></li>
+                    <li><a href="#" class="hover:underline">Devoluciones</a></li>
+                    <li><a href="#" class="hover:underline">Encuentra una demostracion de producto</a></li>
+                    <li><a href="#" class="hover:underline">Legal</a></li>
+                    <li><a href="#" class="hover:underline">Condiciones de venta</a></li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Nuestra iniciativas</li>
+                    <li><a href="#" class="hover:underline">Datos y privacidad</a></li>
+                    <li><a href="#" class="hover:underline">Seguridad y libertad de expresion</a></li>
+                    <li><a href="#" class="hover:underline">Practicas de negocio responsables</a></li>
+                    <li><a href="#" class="hover:underline">Elecciones</a></li>
+                    <li><a href="#" class="hover:underline">Respuesta ante el COVID-19</a></li>
+                    <li><a href="#" class="hover:underline">Reglamentos</a></li>
+                </ul>
+            </div>
+            <div class="text-gray-600 space-y-10">
+                <ul>
+                    <li class="font-bold">Informacion</li>
+                    <li><a href="#" class="hover:underline">Informacion sobre Meta</a></li>
+                    <li><a href="#" class="hover:underline">Galeria multimedia</a></li>
+                    <li><a href="#" class="hover:underline">Recursos de marca</a></li>
+                    <li><a href="#" class="hover:underline">Para inversores</a></li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Nuestra comunidad</li>
+                    <li><a href="#" class="hover:underline">Apoyo a pymes</a></li>
+                    <li><a href="#" class="hover:underline">Giving Together</a></li>
+                    <li><a href="#" class="hover:underline">Impacto social</a></li>
+                    <li><a href="#" class="hover:underline">Crecimiento empresarial y de las comunidades</a></li>
+                </ul>
+                <ul>
+                    <li class="font-bold">Asistencia para aplicaciones</li>
+                    <li><a href="#" class="hover:underline">Servicio de ayuda de Facebook</a></li>
+                    <li><a href="#" class="hover:underline">Servicio de ayuda de Messenger</a></li>
+                    <li><a href="#" class="hover:underline">Servicio de ayuda de Instagram</a></li>
+                    <li><a href="#" class="hover:underline">Servicio de ayuda de WhatsApp</a></li>
+                    <li><a href="#" class="hover:underline">Servicio de ayuda de Workplace</a></li>
+                    <li><a href="#" class="hover:underline">Meta Verified</a></li>
+                </ul>
+            </div>
+            <div class="text-base font-medium">
+                Espana (Espanol)
+            </div>
+            <div class="col-span-3 space-y-4 text-xs">
+                <p class="uppercase">Meta Quest</p>
+                <p>Padres: instrucciones y advertencias de seguridad importantes para uso infantil aquí.</p>
+                <p>LENTES CON IA</p>
+                <p>Ciertas funciones de Meta AI disponibles solo en determinados países e idiomas. Comprueba la disponibilidad local.
+                    Se requieren actualizaciones de software para obtener un rendimiento óptimo.</p>
+                <p>PLAN DE PAGOS OPCIONAL</p>
+                <p>El plan de pagos opcional está disponible por medio de proveedores externos, está sujeto a una comprobación de
+                    elegibilidad de parte del prestamista y a sus condiciones, y es posible que no esté disponible en todos lados o
+                    en todos los productos. Consulta https://www.meta.com/legal/financing-offers/ para más detalles.</p>
+                <p>©2025 Meta.</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+
+</body>
+</html>

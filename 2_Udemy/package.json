@@ -1,0 +1,15 @@
+{
+  "name": "udemy",
+  "version": "1.0.0",
+  "description": "Udemy clon",
+  "main": "index.js",
+  "scripts": {
+    "tw-watch": "npx tailwindcss -i ./styles/udemy.css -o ./styles/udemy-dev.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.18"
+  }
+}
