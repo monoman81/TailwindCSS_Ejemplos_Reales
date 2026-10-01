@@ -5,17 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Udemy - Index</title>
     <link rel="stylesheet" href="styles/udemy-dev.css">
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
     <!-- TOP HEADER -->
-    <header class="flex items-center justify-between gap-4 mx-4 mt-2 text-sm" x-data="{ showCategory:false }">
+    <header class="flex items-center justify-between gap-4 mx-4 mt-2 text-sm relative z-10" x-data="{ showCategory:false }">
         <a href="#"><img src="images/logo-udemy.svg" alt="" class="h-8 w-auto"></a>
         <div class="relative">
+            <!-- Categorias -->
             <a href="#" class="hover:text-udemy" @mouseover="showCategory=true" @click.prevent="showCategory=true">Categorias</a>
-            <div class="absolute top-16 w-max border border-gray-400 shadow-xl rounded-xl py-4 px-10"
+            <div class="absolute top-16 w-max border border-gray-400 shadow-xl rounded-xl py-4 px-10 bg-white"
                  x-show="showCategory" @mouseleave="showCategory=false">
                 <div class="flex basis-full gap-x-8 divide-x divide-gray-300" x-data="{ showSubMenu:false }">
                     <ul class="flex-shrink-0 flex flex-col gap-8">
@@ -149,6 +150,7 @@
             </svg>
             <span>Buscar cualquier cosa</span>
         </div>
+        <!-- RIGHT MENU -->
         <ul x-data="{
                 menuUdemyBusiness: false,
                 menuAprendizaje: false,
@@ -160,8 +162,9 @@
             class="flex items-center gap-x-4">
             <li @mouseover="menuUdemyBusiness=true,menuAprendizaje=false,menuWish=false,menuCart=false,menuNotif=false,menuProfile=false"
                 class="relative">
+                <!-- Udemy Business -->
                 <a href="#" class="hover:text-udemy" @click="menuUdemyBusiness=!menuUdemyBusiness">Udemy Business</a>
-                <div x-show="menuUdemyBusiness" @mouseleave="menuUdemyBusiness=false" class="absolute mt-8 right-0 w-[300px] border border-gray-300 p-4 text-center">
+                <div x-show="menuUdemyBusiness" @mouseleave="menuUdemyBusiness=false" class="absolute bg-white mt-8 right-0 w-[300px] border border-gray-300 p-4 text-center">
                     <div class="text-xl font-semibold">
                         Dale a tu equipo acceso a mas de 24,000 de los mejores cursos de Udemy en cualquier momento y lugar.
                     </div>
@@ -174,8 +177,9 @@
             <li @mouseover="menuUdemyBusiness=false,menuAprendizaje=true,menuWish=false,menuCart=false,menuNotif=false,menuProfile=false"
                 class="relative">
                 <a href="#" class="hover:text-udemy" @click="menuAprendizaje=!menuAprendizaje">Mi Aprendizaje</a>
+                <!-- Mi Aprendizaje -->
                 <div x-show="menuAprendizaje" @mouseleave="menuAprendizaje=false"
-                     class="absolute mt-8 right-0 w-[300px] border border-gray-300 p-4 divide-y divide-gray-300">
+                     class="absolute bg-white mt-8 right-0 w-[300px] border border-gray-300 p-4 divide-y divide-gray-300">
                     <div class="flex gap-3 p-4">
                         <img src="./images/header/aprendizaje/curso1.jpg" class="h-16 w-16 object-cover" alt="">
                         <div class="flex flex-col">
@@ -222,8 +226,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
                 </a>
+                <!-- Wishlist -->
                 <div x-show="menuWish" @mouseleave="menuWish=false"
-                     class="absolute mt-8 right-0 w-[320px] border border-gray-300 p-4 divide-y divide-gray-300">
+                     class="absolute bg-white mt-8 right-0 w-[320px] border border-gray-300 p-4 divide-y divide-gray-300">
                     <div>
                         <div class="flex gap-3 p-2">
                             <img src="./images/header/deseo/deseo1.jpg" class="h-16 w-16 object-cover" alt="">
@@ -265,8 +270,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
                 </a>
+                <!-- Cart -->
                 <div x-show="menuCart" @mouseleave="menuCart=false"
-                     class="absolute mt-8 right-4 w-[320px] border border-gray-300 p-4 divide-y divide-gray-300">
+                     class="absolute bg-white mt-8 right-4 w-[320px] border border-gray-300 p-4 divide-y divide-gray-300">
                     <div>
                         <div class="flex gap-3 p-2">
                             <img src="./images/header/carrito/carrito1.jpg" class="h-16 w-16 object-cover" alt="">
@@ -300,8 +306,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
                     </svg>
                 </a>
+                <!-- Notifications -->
                 <div x-show="menuNotif" x-data="{ tabSelected: 1 }" @mouseleave="menuNotif=false"
-                     class="absolute mt-8 right-4 w-[400px] border border-gray-300 p-4">
+                     class="absolute bg-white mt-8 right-4 w-[400px] border border-gray-300 p-4">
                     <div class="flex justify-between items-center">
                         <p class="text-lg font-bold">Notificaciones</p>
                         <a href="#" class="text-md text-udemy font-bold hover:text-udemy-dark">Configuracion</a>
@@ -478,6 +485,7 @@
             </li>
         </ul>
     </header>
+    
     <!-- Category SubMenu -->
     <div x-data="{ cat_sub_menu: '', show_container: false }">
         <div class="flex justify-center mt-5 border-t-2 border-gray-200 shadow-lg">
@@ -577,6 +585,7 @@
             </ul>
         </div>
     </div>
+    
     <!-- Destacado -->
     <div class="relative max-w-7xl mx-auto mt-4 mb-6">
         <img src="images/destacado.jpg" alt="Destacado" />
@@ -588,6 +597,7 @@
             </p>
         </div>
     </div>
+    
     <!-- Empresas -->
     <div class="py-12 bg-zinc-100 text-center mb-6">
         <p class="text-lg text-gray-600">Mas de 14,000 empresas y millones de estudiantes de todo el mundo confian en nosotros</p>
@@ -600,6 +610,1741 @@
             <img src="images/empresas/hewlett_packard_enterprise.svg" alt="HP">
             <img src="images/empresas/citi.svg" alt="Citi">
             <img src="images/empresas/ericsson.svg" alt="Ericsson">
+        </div>
+    </div>
+    
+    <!-- Cursos -->
+    <div class="max-w-7xl mx-auto py-24">
+        <h2 class="text-3xl font-bold">Una amplia seleccion de cursos</h2>
+        <p class="my-6 text-lg">Elegir entre mas de 210,000 cursos de video en linea con nuevo contenido cada mes</p>
+        <div x-data="{ tab: 1 }">
+            <ul class="flex gap-3">
+                <li class="tab"
+                    :class="tab === 1 ? 'tab-active' : ''"
+                    @click="tab = 1"
+                >
+                    PHP
+                </li>
+                <li class="tab"
+                    :class="tab === 2 ? 'tab-active' : ''"
+                    @click="tab = 2"
+                >
+                    Python
+                </li>
+                <li class="tab"
+                    :class="tab === 3 ? 'tab-active' : ''"
+                    @click="tab = 3"
+                >
+                    Desarrollo Web
+                </li>
+                <li class="tab"
+                    :class="tab === 4 ? 'tab-active' : ''"
+                    @click="tab = 4"
+                >
+                    Javascript
+                </li>
+                <li class="tab"
+                    :class="tab === 5 ? 'tab-active' : ''"
+                    @click="tab = 5"
+                >
+                    NET
+                </li>
+            </ul>
+            <div class="border-0 border-gray-300 p-6">
+                <div x-show="tab === 1">
+                    <h3 class="mt-2 mb-4 text-lg font-bold text-gray-900 font-text">Amplia tus oportunidades profesionales con PHP</h3>
+                    <p class="max-w-3xl line-clamp-3">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto assumenda cupiditate, dolor esse ex, laborum modi
+                        molestiae perspiciatis quasi quis sapiente similique tempore, unde vitae! Ad ducimus in qui. Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Ab beatae cupiditate, deserunt dolorum eaque, eveniet fuga maiores omnis quia reprehenderit,
+                        saepe voluptates voluptatibus. Atque cupiditate est illum molestiae quidem sapiente!
+                    </p>
+                    <a href="#" class="inline-block mt-4 mb-8 border border-gray-900 px-2 py-3 font-semibold hover:bg-gray-200 text-sm">
+                        Explorar PHP
+                    </a>
+                    <div class="grid grid-cols-5 gap-4">
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2
+                                min-w-[400px] bg-white z-10 card-selected"
+                            >
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute right-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected-right">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute right-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected-right">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="tab === 2">
+                    <h3 class="mt-2 mb-4 text-lg font-bold text-gray-900 font-text">Amplia tus oportunidades profesionales con Python</h3>
+                    <p class="max-w-3xl line-clamp-3">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto assumenda cupiditate, dolor esse ex, laborum modi
+                        molestiae perspiciatis quasi quis sapiente similique tempore, unde vitae! Ad ducimus in qui. Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Ab beatae cupiditate, deserunt dolorum eaque, eveniet fuga maiores omnis quia reprehenderit,
+                        saepe voluptates voluptatibus. Atque cupiditate est illum molestiae quidem sapiente!
+                    </p>
+                    <a href="#" class="inline-block mt-4 mb-8 border border-gray-900 px-2 py-3 font-semibold hover:bg-gray-200 text-sm">
+                        Explorar Python
+                    </a>
+                    <div class="grid grid-cols-5 gap-4">
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/480x270/6035102_7d1a.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2
+                                min-w-[400px] bg-white z-10 card-selected"
+                            >
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/480x270/6035102_7d1a.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/480x270/6035102_7d1a.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/480x270/6035102_7d1a.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute right-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected-right">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                            <div>
+                                <img src="https://img-c.udemycdn.com/course/480x270/6035102_7d1a.jpg" alt="imagen 1" class="mb-2">
+                                <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                                    Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                                </h4>
+                                <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                                <div class="flex gap-1 items-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="font-semibold">4.9</span>
+                                        <div class="flex gap-1 items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                 stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-500">(29)</div>
+                                </div>
+                                <div class="flex gap-1 items-center mt-1">
+                                    <span class="text-gray-900 font-semibold">169 MX$</span>
+                                    <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                                </div>
+                            </div>
+                            <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute right-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected-right">
+                                <div class="text-xl font-bold leading-tight">
+                                    <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                                </div>
+                                <div class="my-2 text-[#1e6055] text-xs">
+                                    Actualizado <span class="font-semibold">Marzo de 2026</span>
+                                </div>
+                                <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                                    <div>25.5 horas en total</div>
+                                    <div>&#x2022;</div>
+                                    <div>Nivel avanzado</div>
+                                    <div>&#x2022;</div>
+                                    <div>Subtitulos</div>
+                                </div>
+                                <div class="text-sm my-2">
+                                    Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                                </div>
+                                <div class="text-sm">
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Connect Laravel and React seamlessly without writing APIs</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                        <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                                    <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                        Anadir a la cesta
+                                    </a>
+                                    <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                             stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                        </svg>
+                                    
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Banner -->
+    <div class="bg-gray-300 py-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-24 text-base font-bold">
+            <div class="max-w-[344px] flex items-center gap-3">
+                <div class="bg-gray-200 rounded-full p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 fill-primary">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                    </svg>
+                </div>
+                <p class="font-semibold">
+                    Aprende habilidades a tu ritmo con mas de 210,000 cursos en video
+                </p>
+            </div>
+            <div class="max-w-[344px] flex items-center gap-3">
+                <div class="bg-gray-200 rounded-full p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 fill-primary">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                    </svg>
+                </div>
+                <p class="font-semibold">
+                    Compra cursos impartidos por expertos del mundo real.
+                </p>
+            </div>
+            <div class="max-w-[344px] flex items-center gap-3">
+                <div class="bg-gray-200 rounded-full p-3">
+                    <svg viewBox="0 -5.5 24 24" id="meteor-icon-kit__solid-infinity" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-4 fill-primary">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8.983L10.4339 10.9528C10.2954 11.1271 10.1467 11.2932
+                                9.98875 11.4502C7.74909 13.6759 4.1292 13.6646 1.90348 11.4249L1.78221 11.3029C-0.59407 8.9118 -0.59407
+                                5.0507 1.78221 2.65951L1.90348 2.53748C2.06046 2.37952 2.22653 2.23087 2.40085 2.09228C4.87244 0.12732
+                                8.46898 0.53801 10.4339 3.00961L12 4.97944L13.5661 3.00961C15.531 0.53801 19.1276 0.12732 21.5992
+                                2.09228C21.7735 2.23087 21.9395 2.37952 22.0965 2.53748L22.2178 2.65951C24.5941 5.0507 24.5941 8.9118
+                                22.2178 11.3029L22.0965 11.4249C19.8708 13.6646 16.2509 13.6759 14.0113 11.4502C13.8533 11.2932 13.7046
+                                11.1271 13.5661 10.9528L12 8.983zM15.5163 9.4023C15.5945 9.5007 15.6784 9.5944 15.7675 9.683C17.0311
+                                10.9387 19.0735 10.9324 20.3293 9.6687L20.4506 9.5467C21.8612 8.1272 21.8612 5.8352 20.4506
+                                4.41574L20.3293 4.29371C20.2407 4.20459 20.147 4.12072 20.0487 4.04252C18.6542 2.93386 16.625 3.16559
+                                15.5163 4.56009L13.5915 6.9812L15.5163 9.4023zM8.4837 4.56009C7.37504 3.16559 5.34583 2.93386 3.95133
+                                4.04252C3.85298 4.12072 3.75928 4.20459 3.67071 4.29371L3.54944 4.41574C2.13882 5.8352 2.13882 8.1272
+                                3.54944 9.5467L3.67071 9.6687C4.92648 10.9324 6.96888 10.9387 8.23252 9.683C8.32164 9.5944 8.40551 9.5007
+                                8.4837 9.4023L10.4085 6.9812L8.4837 4.56009z" >
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <p class="font-semibold">
+                    Aprende a tu propio ritmo, con acceso de por vida desde ordenadores o dispositivos moviles.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cursos Destacados -->
+    <div class="max-w-7xl mx-auto py-12">
+        <h2 class="text-3xl font-bold">Los estudiantes estan viendo</h2>
+        <div class="my-6 p-6">
+            <div class="grid grid-cols-5 gap-4">
+                <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                    <div>
+                        <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                        <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                            Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                        </h4>
+                        <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                        <div class="flex gap-1 items-center">
+                            <div class="flex items-center gap-1">
+                                <span class="font-semibold">4.9</span>
+                                <div class="flex gap-1 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500">(29)</div>
+                        </div>
+                        <div class="flex gap-1 items-center mt-1">
+                            <span class="text-gray-900 font-semibold">169 MX$</span>
+                            <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                            
+                        </div>
+                        <span class="inline-block mt-1 text-xs font-semibold py-1 px-2 bg-accent rounded-md">
+                            Lo mas vendido
+                        </span>
+                    </div>
+                    <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2
+                                min-w-[400px] bg-white z-10 card-selected"
+                    >
+                        <div class="text-xl font-bold leading-tight">
+                            <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                        </div>
+                        <div class="my-2 text-[#1e6055] text-xs">
+                            Actualizado <span class="font-semibold">Marzo de 2026</span>
+                        </div>
+                        <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                            <div>25.5 horas en total</div>
+                            <div>&#x2022;</div>
+                            <div>Nivel avanzado</div>
+                            <div>&#x2022;</div>
+                            <div>Subtitulos</div>
+                        </div>
+                        <div class="text-sm my-2">
+                            Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                        </div>
+                        <div class="text-sm">
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Connect Laravel and React seamlessly without writing APIs</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                            <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                Anadir a la cesta
+                            </a>
+                            <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                    <div>
+                        <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                        <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                            Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                        </h4>
+                        <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                        <div class="flex gap-1 items-center">
+                            <div class="flex items-center gap-1">
+                                <span class="font-semibold">4.9</span>
+                                <div class="flex gap-1 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500">(29)</div>
+                        </div>
+                        <div class="flex gap-1 items-center mt-1">
+                            <span class="text-gray-900 font-semibold">169 MX$</span>
+                            <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                        </div>
+                    </div>
+                    <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected">
+                        <div class="text-xl font-bold leading-tight">
+                            <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                        </div>
+                        <div class="my-2 text-[#1e6055] text-xs">
+                            Actualizado <span class="font-semibold">Marzo de 2026</span>
+                        </div>
+                        <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                            <div>25.5 horas en total</div>
+                            <div>&#x2022;</div>
+                            <div>Nivel avanzado</div>
+                            <div>&#x2022;</div>
+                            <div>Subtitulos</div>
+                        </div>
+                        <div class="text-sm my-2">
+                            Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                        </div>
+                        <div class="text-sm">
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Connect Laravel and React seamlessly without writing APIs</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                            <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                Anadir a la cesta
+                            </a>
+                            <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                    <div>
+                        <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                        <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                            Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                        </h4>
+                        <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                        <div class="flex gap-1 items-center">
+                            <div class="flex items-center gap-1">
+                                <span class="font-semibold">4.9</span>
+                                <div class="flex gap-1 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500">(29)</div>
+                        </div>
+                        <div class="flex gap-1 items-center mt-1">
+                            <span class="text-gray-900 font-semibold">169 MX$</span>
+                            <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                        </div>
+                    </div>
+                    <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute left-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected">
+                        <div class="text-xl font-bold leading-tight">
+                            <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                        </div>
+                        <div class="my-2 text-[#1e6055] text-xs">
+                            Actualizado <span class="font-semibold">Marzo de 2026</span>
+                        </div>
+                        <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                            <div>25.5 horas en total</div>
+                            <div>&#x2022;</div>
+                            <div>Nivel avanzado</div>
+                            <div>&#x2022;</div>
+                            <div>Subtitulos</div>
+                        </div>
+                        <div class="text-sm my-2">
+                            Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                        </div>
+                        <div class="text-sm">
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Connect Laravel and React seamlessly without writing APIs</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                            <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                Anadir a la cesta
+                            </a>
+                            <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                    <div>
+                        <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                        <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                            Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                        </h4>
+                        <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                        <div class="flex gap-1 items-center">
+                            <div class="flex items-center gap-1">
+                                <span class="font-semibold">4.9</span>
+                                <div class="flex gap-1 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500">(29)</div>
+                        </div>
+                        <div class="flex gap-1 items-center mt-1">
+                            <span class="text-gray-900 font-semibold">169 MX$</span>
+                            <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                        </div>
+                    </div>
+                    <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute right-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected-right">
+                        <div class="text-xl font-bold leading-tight">
+                            <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                        </div>
+                        <div class="my-2 text-[#1e6055] text-xs">
+                            Actualizado <span class="font-semibold">Marzo de 2026</span>
+                        </div>
+                        <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                            <div>25.5 horas en total</div>
+                            <div>&#x2022;</div>
+                            <div>Nivel avanzado</div>
+                            <div>&#x2022;</div>
+                            <div>Subtitulos</div>
+                        </div>
+                        <div class="text-sm my-2">
+                            Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                        </div>
+                        <div class="text-sm">
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Connect Laravel and React seamlessly without writing APIs</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                            <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                Anadir a la cesta
+                            </a>
+                            <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative cursor-pointer" x-data="{ open: false }" @mouseover="open=true" @mouseleave="open=false" @click.away="open=false">
+                    <div>
+                        <img src="https://img-c.udemycdn.com/course/240x135/6577755_487f.jpg" alt="imagen 1" class="mb-2">
+                        <h4 class="my-1 line-clamp-2 font-semibold text-gray-900 font-text leading-tight">
+                            Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT
+                        </h4>
+                        <p class="text-xs text-gray-500">Davis Anderson | AnderCode</p>
+                        <div class="flex gap-1 items-center">
+                            <div class="flex items-center gap-1">
+                                <span class="font-semibold">4.9</span>
+                                <div class="flex gap-1 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                         stroke="currentColor" class="size-4 text-[#b4690e] fill-[#b4690e]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500">(29)</div>
+                        </div>
+                        <div class="flex gap-1 items-center mt-1">
+                            <span class="text-gray-900 font-semibold">169 MX$</span>
+                            <span class="text-gray-500 font-semibold line-through">199 MX$</span>
+                        </div>
+                    </div>
+                    <div x-show="open" class="p-8 border border-gray-300 rounded-lg shadow-lg absolute right-[100%] -top-1/2 min-w-[400px] bg-white z-10 card-selected-right">
+                        <div class="text-xl font-bold leading-tight">
+                            <a href="#" class="hover:text-udemy transition-colors">Crea un Sistema de Mesa de Ayuda con Laravel +ChatGPT</a>
+                        </div>
+                        <div class="my-2 text-[#1e6055] text-xs">
+                            Actualizado <span class="font-semibold">Marzo de 2026</span>
+                        </div>
+                        <div class="my-2 flex items-center text-xs text-gray-500 gap-2">
+                            <div>25.5 horas en total</div>
+                            <div>&#x2022;</div>
+                            <div>Nivel avanzado</div>
+                            <div>&#x2022;</div>
+                            <div>Subtitulos</div>
+                        </div>
+                        <div class="text-sm my-2">
+                            Aprenderás a crear aplicaciones REALES con Laravel: Autenticación, Seguridad, Arquitectura de Software, JWT
+                        </div>
+                        <div class="text-sm">
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Build a complete Twitter/X-style social media app using Laravel 12, React 19, and Inertia.js v2</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Connect Laravel and React seamlessly without writing APIs</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-3 mt-1 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                </svg>
+                                <div>Implement authentication (registration, login, logout) and authorization with Laravel policies</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center gap-2 mt-8 text-center">
+                            <a href="#" class="flex-1 p-4 text-white font-bold bg-udemy-dark hover:bg-udemy transition-colors rounded-lg">
+                                Anadir a la cesta
+                            </a>
+                            <a href="#" class="p-4 rounded-full border border-udemy text-udemy hover:bg-gray-100 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                     stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Categorias Principales -->
+    <div class="max-w-7xl mx-auto py-24">
+        <h2 class="text-3xl font-bold">Categorias principales</h2>
+        <div class="my-6 p-6 flex gap-x-2 gap-y-8 flex-wrap basis-1/4">
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-0.jpg" alt="Categoria 0">
+                </div>
+                <p class="font-semibold">Diseno</p>
+            </a>
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-1.jpg" alt="Categoria 1">
+                </div>
+                <p class="font-semibold">Desarrollo</p>
+            </a>
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-2.jpg" alt="Categoria 2">
+                </div>
+                <p class="font-semibold">Marketing</p>
+            </a>
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-3.jpg" alt="Categoria 3">
+                </div>
+                <p class="font-semibold">Informacion y Software</p>
+            </a>
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-4.jpg" alt="Categoria 4">
+                </div>
+                <p class="font-semibold">Desarroll Personal</p>
+            </a>
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-5.jpg" alt="Categoria 5">
+                </div>
+                <p class="font-semibold">Negocio</p>
+            </a>
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-6.jpg" alt="Categoria 6">
+                </div>
+                <p class="font-semibold">Fotografia</p>
+            </a>
+            <a href="#">
+                <div class="mb-2 bg-[#f7f9fb] overflow-hidden">
+                    <img class="hover:scale-[1.05]" src="./images/categorias/categoria-7.jpg" alt="Categoria 7">
+                </div>
+                <p class="font-semibold">Musica</p>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Temas Destacados -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold">Temas destacados por categoria</h2>
+            <div class="mt-4 grid grid-cols-4 gap-4">
+                <div>
+                    <h3 class="text-xl font-semibold">Desarrollo</h3>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Python</a>
+                        <span class="text-sm text-gray-400">36,354,994 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Desarrollo Web</a>
+                        <span class="text-sm text-gray-400">11,415,615 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Machine Learning</a>
+                        <span class="text-sm text-gray-400">7,070,015 learners</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Negocios</h3>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Analisis Financiero</a>
+                        <span class="text-sm text-gray-400">1,195,282 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">SQL</a>
+                        <span class="text-sm text-gray-400">11,415,615 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">PMP</a>
+                        <span class="text-sm text-gray-400">7,070,015 learners</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">TI y Software</h3>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Amazon AWS</a>
+                        <span class="text-sm text-gray-400">1,195,282 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Hackeo Etico</a>
+                        <span class="text-sm text-gray-400">11,415,615 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Seguridad</a>
+                        <span class="text-sm text-gray-400">7,070,015 learners</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Diseno</h3>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Photoshop</a>
+                        <span class="text-sm text-gray-400">1,195,282 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Diseno Grafico</a>
+                        <span class="text-sm text-gray-400">11,415,615 learners</span>
+                    </div>
+                    <div class="mt-4 flex flex-col">
+                        <a href="#" class="font-medium text-udemy hover:text-udemy-dark underline">Dibujo</a>
+                        <span class="text-sm text-gray-400">7,070,015 learners</span>
+                    </div>
+                </div>
+            </div>
+            <a href="" class="inline-block mt-4 p-3 border border-primary font-semibold text-sm hover:bg-gray-200">
+                Descubrir mas temas
+            </a>
+        </div>
+    </div>
+    
+    <!-- Bussiness -->
+    <div class="my-16 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 gap-x-8 gap-y-16 items-center">
+            <div>
+                <img src="images/logo-ub.svg" class="w-48 mb-4" alt="Logo de Udemy">
+                <h2 class="text-3xl font-bold">Desarrolla las habilidades de tu equipo gracias a Udemy Busines</h2>
+                <ul class="my-6 list-disc pl-6 space-y-6 text-xl">
+                    <li>Acceso ilimitado a mas de 25,000 de los mejores cursos de Udemy en cualquier momento y lugar</li>
+                    <li>Coleccion internacional de cursos en 14 idiomas</li>
+                    <li>Las certificaciones mas populares en tecnologia y empresas</li>
+                </ul>
+                <div class="flex items-center flex-wrap gap-2">
+                    <a href="" class="p-3 bg-primary text-white font-semibold hover:bg-primary-light">
+                        Consigue Udemy Business
+                    </a>
+                    <a href="" class="p-3 border border-primary font-semibold hover:bg-gray-200">
+                        Mas informacion
+                    </a>
+                </div>
+            </div>
+            <div>
+                <img src="images/business/business-1.jpg" alt="">
+            </div>
+            <div>
+                <img src="images/business/business-2.jpg" alt="">
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold">Convierte en instructor</h2>
+                <p class="my-6 text-lg">
+                    Instructores de todo el mundo ensenan a millones de estudiantes en Udemy.
+                    Proporcionamos las herramientas y las habilidades para que ensenes lo que te apasiona.
+                </p>
+                <div class="flex items-center flex-wrap gap-2">
+                    <a href="" class="p-3 bg-primary text-white font-semibold hover:bg-primary-light">
+                        Empieza a ensenar hoy mismo
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     
