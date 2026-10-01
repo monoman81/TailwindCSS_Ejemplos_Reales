@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Udemy - Curso Pago</title>
+    <link rel="stylesheet" href="styles/udemy-dev.css">
+    <!-- Alpine Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    <header class="flex items-center justify-between gap-4 mx-4 mt-2 text-sm relative z-10" x-data="{ showCategory:false }">
+        <a href="#"><img src="images/logo-udemy.svg" alt="" class="h-8 w-auto"></a>
+        <div class="relative">
+            <!-- Categorias -->
+            <a href="#" class="hover:text-udemy" @mouseover="showCategory=true" @click.prevent="showCategory=true">Categorias</a>
+            <div class="absolute top-16 w-max border border-gray-400 shadow-xl rounded-xl py-4 px-10 bg-white"
+                 x-show="showCategory" @mouseleave="showCategory=false">
+                <div class="flex basis-full gap-x-8 divide-x divide-gray-300" x-data="{ showSubMenu:false }">
+                    <ul class="flex-shrink-0 flex flex-col gap-8">
+                        <li class="flex justify-between items-center">
+                            <a href="#" class="hover:text-udemy" @mouseover="showSubMenu=true">Desarrollo</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="3" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <a href="#" class="hover:text-udemy">Negocios</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="2" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <a href="#" class="hover:text-udemy">Finanzas y Contabilidad</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="2" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <a href="#" class="hover:text-udemy">Informatica y Software</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="2" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                        <li class="flex justify-between items-center gap-x-8">
+                            <a href="#" class="hover:text-udemy">Productividad en la Oficina</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="2" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <a href="#" class="hover:text-udemy">Desarrollo Personal</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="2" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <a href="#" class="hover:text-udemy">Diseno</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="2" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <a href="#" class="hover:text-udemy">Marketing</a>
+                            <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="2" stroke="currentColor"
+                                         class="w-2 h-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                    </svg>
+                                </span>
+                        </li>
+                    </ul>
+                    <div x-show="showSubMenu" @mouseleave="showSubMenu=false" class="flex-shrink-0 pl-4">
+                        <ul class="flex flex-col gap-8">
+                            <li><a href="#" class="hover:text-udemy">Desarrollo Web</a></li>
+                            <li><a href="#" class="hover:text-udemy">Ciencias de la Informacion</a></li>
+                            <li><a href="#" class="hover:text-udemy">Desarrollo Movil</a></li>
+                            <li><a href="#" class="hover:text-udemy">Lenguajes de Programacion</a></li>
+                            <li><a href="#" class="hover:text-udemy">Desarrollo de Videojuegos</a></li>
+                            <li><a href="#" class="hover:text-udemy">Diseno y Desarrollo de Bases de Datos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--ul>
+                    <li x-data="{ showDevelopment:false }" class="relative">
+                        <a href="#" class="hover:text-udemy" @mouseover="showDevelopment=true">Desarrollo</a>
+                        <div x-show="showDevelopment" @mouseleave="showDevelopment=false" class="absolute top-0 right-[-100%]">
+                            <ul>
+                                <li><a href="#" class="hover:text-udemy">Desarrollo Web</a></li>
+                                <li><a href="#" class="hover:text-udemy">Ciencias de la Informacion</a></li>
+                                <li><a href="#" class="hover:text-udemy">Desarrollo Movil</a></li>
+                                <li><a href="#" class="hover:text-udemy">Lenguajes de Programacion</a></li>
+                                <li><a href="#" class="hover:text-udemy">Desarrollo de Videojuegos</a></li>
+                                <li><a href="#" class="hover:text-udemy">Diseno y Desarrollo de Bases de Datos</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-udemy">Negocios</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-udemy">Finanzas y Contabilidad</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-udemy">Informatica y Software</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-udemy">Productividad en la Oficina</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-udemy">Desarrollo Personal</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-udemy">Diseno</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-udemy">Marketing</a>
+                    </li>
+                </ul-->
+            </div>
+        </div>
+        <div class="p-4 border border-primary rounded-full flex flex-grow items-center text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                 class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+            </svg>
+            <span>Buscar cualquier cosa</span>
+        </div>
+        <!-- RIGHT MENU -->
+        <ul x-data="{
+                            menuUdemyBusiness: false,
+                            menuAprendizaje: false,
+                            menuWish: false,
+                            menuCart: false,
+                            menuNotif: false,
+                            menuProfile: false
+                        }"
+            class="flex items-center gap-x-4">
+            <li @mouseover="menuUdemyBusiness=true,menuAprendizaje=false,menuWish=false,menuCart=false,menuNotif=false,menuProfile=false"
+                class="relative">
+                <!-- Udemy Business -->
+                <a href="#" class="hover:text-udemy" @click="menuUdemyBusiness=!menuUdemyBusiness">Udemy Business</a>
+                <div x-show="menuUdemyBusiness" @mouseleave="menuUdemyBusiness=false"
+                     class="absolute bg-white mt-8 right-0 w-[300px] border border-gray-300 p-4 text-center">
+                    <div class="text-xl font-semibold">
+                        Dale a tu equipo acceso a mas de 24,000 de los mejores cursos de Udemy en cualquier momento y lugar.
+                    </div>
+                    <a href="#" class="block mt-4 p-4 bg-primary hover:bg-primary-light text-white text-lg">Prueba Udemy
+                        Business</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="hover:text-udemy">Instructor</a>
+            </li>
+            <li @mouseover="menuUdemyBusiness=false,menuAprendizaje=true,menuWish=false,menuCart=false,menuNotif=false,menuProfile=false"
+                class="relative">
+                <a href="#" class="hover:text-udemy" @click="menuAprendizaje=!menuAprendizaje">Mi Aprendizaje</a>
+                <!-- Mi Aprendizaje -->
+                <div x-show="menuAprendizaje" @mouseleave="menuAprendizaje=false"
+                     class="absolute bg-white mt-8 right-0 w-[300px] border border-gray-300 p-4 divide-y divide-gray-300">
+                    <div class="flex gap-3 p-4">
+                        <img src="./images/header/aprendizaje/curso1.jpg" class="h-16 w-16 object-cover" alt="">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold mb-2 leading-tight">Basics of Fibonacci: Price Action Trading Tool</span>
+                            <div class="h-2 bg-gray-300 relative">
+                                <div class="h-2 left-0 top-0 w-1/4 absolute bg-blue-700"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4">
+                        <img src="./images/header/aprendizaje/curso2.jpg" class="h-16 w-16 object-cover" alt="">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold mb-2 leading-tight">Day Trading & Swing Trading: Technical Analysis Basics 2023</span>
+                            <div class="h-2 bg-gray-300 relative">
+                                <div class="h-2 left-0 top-0 w-1/2 absolute bg-blue-700"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4">
+                        <img src="./images/header/aprendizaje/curso3.jpg" class="h-16 w-16 object-cover" alt="">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold mb-2 leading-tight">The Essential Guide to Airtable</span>
+                            <div class="h-2 bg-gray-300 relative">
+                                <div class="h-2 left-0 top-0 w-[20%] absolute bg-blue-700"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 p-4">
+                        <img src="./images/header/aprendizaje/curso4.jpg" class="h-16 w-16 object-cover" alt="">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold mb-2 leading-tight">The Complete Ruby on Rails Developer Course</span>
+                            <div class="h-2 bg-gray-300 relative">
+                                <div class="h-2 left-0 top-0 w-[10%] absolute bg-blue-700"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="block mt-4 p-4 bg-primary hover:bg-primary-light text-white text-lg text-center">Ir a
+                        Mi Aprendizaje</a>
+                </div>
+            </li>
+            <li @mouseover="menuUdemyBusiness=false,menuAprendizaje=false,menuWish=true,menuCart=false,menuNotif=false,menuProfile=false"
+                class="relative">
+                <a href="#" class="hover:text-udemy" @click="menuWish=!menuWish">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                         stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
+                    </svg>
+                </a>
+                <!-- Wishlist -->
+                <div x-show="menuWish" @mouseleave="menuWish=false"
+                     class="absolute bg-white mt-8 right-0 w-[320px] border border-gray-300 p-4 divide-y divide-gray-300">
+                    <div>
+                        <div class="flex gap-3 p-2">
+                            <img src="./images/header/deseo/deseo1.jpg" class="h-16 w-16 object-cover" alt="">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-semibold leading-tight line-clamp-2">CRM + Embudos de venta + Estrategia y Metodos + B2B SaaS</span>
+                                <span class="text-xs text-gray-400 ">Bernardo Mohnblatt</span>
+                                <p class="text-sm font-bold mb-2">$11.99 <span class="text-xs text-gray-400 line-through">$99.99</span>
+                                </p>
+                            </div>
+                        </div>
+                        <a href="#"
+                           class="block p-2 bg-zinc-50 hover:bg-zinc-100 text-black text-sm text-center font-bold border border-gray-400">
+                            Anadir a la cesta
+                        </a>
+                    </div>
+                    <div>
+                        <div class="flex gap-3 p-4">
+                            <img src="./images/header/deseo/deseo2.jpg" class="h-16 w-16 object-cover" alt="">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-semibold leading-tight line-clamp-2">Programa de Lanzamiento de tu Startup</span>
+                                <span class="text-xs text-gray-400">Nestor Guerra Guillermo Guerra</span>
+                                <p class="text-sm font-bold mb-2">$219.99</p>
+                            </div>
+                        </div>
+                        <a href="#"
+                           class="block p-2 bg-zinc-50 hover:bg-zinc-100 text-black text-sm text-center font-bold border border-gray-400">
+                            Anadir a la cesta
+                        </a>
+                    </div>
+                    <a href="#" class="block mt-4 p-4 bg-primary hover:bg-primary-light text-white text-lg text-center">
+                        Ir a Mi Lista de Deseos
+                    </a>
+                </div>
+            </li>
+            <li @mouseover="menuUdemyBusiness=false,menuAprendizaje=false,menuWish=false,menuCart=true,menuNotif=false,menuProfile=false"
+                class="relative">
+                <a href="#" class="hover:text-udemy relative" @click="menuCart=!menuCart">
+                                <span class="absolute -top-3 left-1/2 w-6 h-6 rounded-full bg-udemy text-xs text-white flex items-center justify-center">
+                                    2
+                                </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                         stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/>
+                    </svg>
+                </a>
+                <!-- Cart -->
+                <div x-show="menuCart" @mouseleave="menuCart=false"
+                     class="absolute bg-white mt-8 right-4 w-[320px] border border-gray-300 p-4 divide-y divide-gray-300">
+                    <div>
+                        <div class="flex gap-3 p-2">
+                            <img src="./images/header/carrito/carrito1.jpg" class="h-16 w-16 object-cover" alt="">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-semibold leading-tight line-clamp-2">React - The Complete Guide 2023 (incl. Next.js, Redux)</span>
+                                <span class="text-xs text-gray-400 ">Academind by Maximilian Schwarzmüller</span>
+                                <p class="text-sm font-bold mb-2">$11.99 <span class="text-xs text-gray-400 line-through">$64.99</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex gap-3 p-4">
+                            <img src="./images/header/carrito/carrito2.jpg" class="h-16 w-16 object-cover" alt="">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-semibold leading-tight line-clamp-2">Lean Manufacturing 14 Principios basicos.</span>
+                                <span class="text-xs text-gray-400">Angel Vicente Rodriguez Nunez</span>
+                                <p class="text-sm font-bold mb-2">$11.99 <span class="text-xs text-gray-400 line-through">$79.99</span>
+                                </p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2 font-bold text-lg">Total: $23.98 <span
+                            class="text-sm text-gray-400 line-through">$164.90</span></p>
+                    <a href="#" class="block mt-1 p-4 bg-primary hover:bg-primary-light text-white text-lg text-center">
+                        Ir a la cesta
+                    </a>
+                </div>
+            </li>
+            <li @mouseover="menuUdemyBusiness=false,menuAprendizaje=false,menuWish=false,menuCart=false,menuNotif=true,menuProfile=false"
+                class="relative">
+                <a href="#" class="hover:text-udemy">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                         stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/>
+                    </svg>
+                </a>
+                <!-- Notifications -->
+                <div x-show="menuNotif" x-data="{ tabSelected: 1 }" @mouseleave="menuNotif=false"
+                     class="absolute bg-white mt-8 right-4 w-[400px] border border-gray-300 p-4">
+                    <div class="flex justify-between items-center">
+                        <p class="text-lg font-bold">Notificaciones</p>
+                        <a href="#" class="text-md text-udemy font-bold hover:text-udemy-dark">Configuracion</a>
+                    </div>
+                    <div class="mt-4 text-sm grid grid-cols-2 text-center">
+                        <a href="#" @click="tabSelected=1" class="p-2 hover:text-primary"
+                           :class="tabSelected===1 ? 'border-b-2 border-primary font-bold' : 'border-b border-gray-300 font-medium text-gray-600'">
+                            Instructor
+                        </a>
+                        <a href="#" @click="tabSelected=2" class="p-2 hover:text-primary"
+                           :class="tabSelected===2 ? 'border-b-2 border-primary font-bold' : 'border-b border-gray-300 font-medium text-gray-600'">
+                            Estudiantes
+                        </a>
+                    </div>
+                    <div x-show="tabSelected===1" class="divide-y divide-gray-300">
+                        <div class="flex gap-3 p-4 items-center">
+                            <img src="./images/header/notificaciones/logo-notificacion.jpg" class="h-16 w-16 object-cover"
+                                 alt="">
+                            <div class="flex flex-col">
+                                            <span class="text-sm font-semibold leading-tight line-clamp-2">
+                                                Ya se han eliminado las clases que solicitaste que se eliminaran
+                                            </span>
+                                <span class="text-xs text-gray-400">hace 1 dia</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 p-4 items-center">
+                            <img src="./images/header/notificaciones/logo-notificacion.jpg" class="h-16 w-16 object-cover"
+                                 alt="">
+                            <div class="flex flex-col">
+                                            <span class="text-sm font-semibold leading-tight line-clamp-2">
+                                                Se han creado subtitulos automaticos para tu curso, Instala...
+                                            </span>
+                                <span class="text-xs text-gray-400">hace 6 dias</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 p-4 items-center">
+                            <img src="./images/header/notificaciones/logo-notificacion.jpg" class="h-16 w-16 object-cover"
+                                 alt="">
+                            <div class="flex flex-col">
+                                            <span class="text-sm font-semibold leading-tight line-clamp-2">
+                                                Se han creado subtitulos automaticos para tu curso, Apren...
+                                            </span>
+                                <span class="text-xs text-gray-400">hace 9 dias</span>
+                            </div>
+                        </div>
+                        <div class="p-4 flex items-center justify-around">
+                            <a href="#"
+                               class="text-base text-udemy-light font-semibold opacity-70 hover:cursor-not-allowed">
+                                Marcar todo como leido
+                            </a>
+                            <a href="#"
+                               class="block mt-1 px-6 py-2 border border-primary bg-zinc-50 hover:bg-zinc-100 text-black text-base text-center font-semibold">
+                                Ver todo
+                            </a>
+                        </div>
+                    </div>
+                    <div x-show="tabSelected===2" class="p-4 text-base text-center text-gray-500">
+                        Sin notificaciones.
+                    </div>
+                </div>
+            </li>
+            <li @mouseover="menuUdemyBusiness=false,menuAprendizaje=false,menuWish=false,menuCart=false,menuNotif=false,menuProfile=true"
+                class="relative">
+                <a href="#">
+                    <img src="images/farid.jpg" alt=""
+                         class="h-10 w-10 rounded-full border-2 border-gray-300 object-cover object-center">
+                </a>
+                <div x-show="menuProfile" @mouseleave="menuProfile=false"
+                     class="absolute mt-8 right-4 w-[260px] border border-gray-300 divide-y divide-gray-300 bg-white">
+                    <div class="p-4 flex items-center gap-3">
+                        <img src="images/farid.jpg" al flex justify-between items-centert=""
+                             class="h-16 w-16 rounded-full border-2 border-gray-300 object-cover object-top">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-bold">Carlos Ponce</span>
+                            <span class="text-xs text- flex justify-between items-centergray-400 font-medium">crpn81@yahoo.com.mx</span>
+                        </div>
+                    </div>
+                    <div class="py-2">
+                        <ul>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Mi aprendizaje</a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 px-4 flex justify-between items-center hover:text-udemy">
+                                    <span>Mi Cesta</span>
+                                    <span class="w-6 h-6 rounded-full bg-udemy text-xs text-white flex items-center justify-center">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Lista de Deseos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Panel del Instructor</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="py-2">
+                        <ul>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Notificaciones</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Mensajes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="py-2">
+                        <ul>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Configuracion de cuenta</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Metodos de pago</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Suscripciones</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Creditos de Udemy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Historial de compras</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="py-2">
+                        <ul>
+                            <li>
+                                <a href="" class="flex justify-between items-center py-2 px-4 group">
+                                    <span class="group-hover:text-udemy">Idioma</span>
+                                    <span class="flex items-center gap-2">
+                                                    <span>Espanol</span>
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                             fill="currentColor" class="size-4">
+                                                            <path d="M21.721 12.752a9.711 9.711 0 0 0-.945-5.003 12.754 12.754 0 0 1-4.339 2.708 18.991 18.991 0 0 1-.214 4.772 17.165 17.165 0 0 0 5.498-2.477ZM14.634 15.55a17.324 17.324 0 0 0 .332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 0 0 .332 4.647 17.385 17.385 0 0 0 5.268 0ZM9.772 17.119a18.963 18.963 0 0 0 4.456 0A17.182 17.182 0 0 1 12 21.724a17.18 17.18 0 0 1-2.228-4.605ZM7.777 15.23a18.87 18.87 0 0 1-.214-4.774 12.753 12.753 0 0 1-4.34-2.708 9.711 9.711 0 0 0-.944 5.004 17.165 17.165 0 0 0 5.498 2.477ZM21.356 14.752a9.765 9.765 0 0 1-7.478 6.817 18.64 18.64 0 0 0 1.988-4.718 18.627 18.627 0 0 0 5.49-2.098ZM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 0 0 1.988 4.718 9.765 9.765 0 0 1-7.478-6.816ZM13.878 2.43a9.755 9.755 0 0 1 6.116 3.986 11.267 11.267 0 0 1-3.746 2.504 18.63 18.63 0 0 0-2.37-6.49ZM12 2.276a17.152 17.152 0 0 1 2.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0 1 12 2.276ZM10.122 2.43a18.629 18.629 0 0 0-2.37 6.49 11.266 11.266 0 0 1-3.746-2.504 9.754 9.754 0 0 1 6.116-3.985Z"/>
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="py-2">
+                        <ul>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Perfil publico</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Editar Perfil</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="py-2">
+                        <ul>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Ayuda</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:text-udemy">Cerrar Sesion</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="py-2">
+                        <ul>
+                            <li>
+                                <a href="#" class="flex justify-between py-2 px-4 hover:text-udemy">
+                                                <span class="flex flex-col">
+                                                    <span class="text-lg font-semibold">Udemy Business</span>
+                                                    <span class="text-gray-500">Lleva el aprendizaje a tu empresa</span>
+                                                </span>
+                                    <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                         fill="currentColor" class="size-6">
+                                                        <path fill-rule="evenodd"
+                                                              d="M15.75 2.25H21a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V4.81L8.03 17.03a.75.75 0 0 1-1.06-1.06L19.19 3.75h-3.44a.75.75 0 0 1 0-1.5Zm-10.5 4.5a1.5 1.5 0 0 0-1.5 1.5v10.5a1.5 1.5 0 0 0 1.5 1.5h10.5a1.5 1.5 0 0 0 1.5-1.5V10.5a.75.75 0 0 1 1.5 0v8.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V8.25a3 3 0 0 1 3-3h8.25a.75.75 0 0 1 0 1.5H5.25Z"
+                                                              clip-rule="evenodd"/>
+                                                    </svg>
+                                                </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </header>
+    
+    <div class="border-b border-gray-600 py-4 px-8 bg-[#1c1d1f] text-white text-xl flex justify-between items-center">
+        <p class="basis-1/2">
+            Las principales empresas eligen a
+            <a href="#" class="font-semibold text-[#cec0fc] hover:underline">Udemy Business</a>
+            para desarrollar sus habilidades profesionales mas demandadas.
+        </p>
+        <div class="flex-grow flex items-center justify-end gap-6">
+            <img src="https://s.udemycdn.com/partner-logos/v4/nasdaq-light.svg" alt="Nasdaq">
+            <img src="https://s.udemycdn.com/partner-logos/v4/volkswagen-light.svg" alt="Nasdaq">
+            <img src="https://s.udemycdn.com/partner-logos/v4/netapp-light.svg" alt="Nasdaq">
+            <img src="https://s.udemycdn.com/partner-logos/v4/eventbrite-light.svg" alt="Nasdaq">
+        </div>
+    </div>
+    <footer class="py-8 px-8 bg-[#1c1d1f] text-white text-sm">
+        <div class="flex justify-between">
+            <div class="flex-1 flex flex-col justify-between gap-16">
+                <div class="grid grid-cols-[1fr_1fr_2fr] text-xs font-semibold">
+                    <ul class="flex flex-col gap-4">
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Udemy Business</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Ensena en Udemy</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Consigue la aplicacion</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Quienes Somos</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Ponte en contacto con nosotros</a></li>
+                    </ul>
+                    <ul class="flex flex-col gap-4">
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Empleo</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Blog</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Ayuda y asistencia</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Afiliado</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Inversores</a></li>
+                    </ul>
+                    <ul class="flex flex-col gap-4">
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Condiciones</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Politica de privacidad</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Configuracion de cookies</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Mapa del sitio</a></li>
+                        <li><a href="#" class="text-white hover:text-[#a7aada]">Declaracion de accesibilidad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="images/logo-udemy-inverted.svg" alt="" class="h-8 w-auto">
+                </div>
+            </div>
+            <div class="flex flex-col justify-between">
+                    <span>
+                        <a href="#"
+                           class="border-2 border-white flex gap-2 items-center py-2 px-4 text-base hover:bg-primary">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                     class="size-4">
+                                    <path d="M21.721 12.752a9.711 9.711 0 0 0-.945-5.003 12.754 12.754 0 0 1-4.339 2.708 18.991 18.991 0 0 1-.214 4.772 17.165 17.165 0 0 0 5.498-2.477ZM14.634 15.55a17.324 17.324 0 0 0 .332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 0 0 .332 4.647 17.385 17.385 0 0 0 5.268 0ZM9.772 17.119a18.963 18.963 0 0 0 4.456 0A17.182 17.182 0 0 1 12 21.724a17.18 17.18 0 0 1-2.228-4.605ZM7.777 15.23a18.87 18.87 0 0 1-.214-4.774 12.753 12.753 0 0 1-4.34-2.708 9.711 9.711 0 0 0-.944 5.004 17.165 17.165 0 0 0 5.498 2.477ZM21.356 14.752a9.765 9.765 0 0 1-7.478 6.817 18.64 18.64 0 0 0 1.988-4.718 18.627 18.627 0 0 0 5.49-2.098ZM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 0 0 1.988 4.718 9.765 9.765 0 0 1-7.478-6.816ZM13.878 2.43a9.755 9.755 0 0 1 6.116 3.986 11.267 11.267 0 0 1-3.746 2.504 18.63 18.63 0 0 0-2.37-6.49ZM12 2.276a17.152 17.152 0 0 1 2.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0 1 12 2.276ZM10.122 2.43a18.629 18.629 0 0 0-2.37 6.49 11.266 11.266 0 0 1-3.746-2.504 9.754 9.754 0 0 1 6.116-3.985Z"/>
+                                </svg>
+                            </span>
+                            <span>Espanol</span>
+                        </a>
+                    </span>
+                <span class="text-xs text-right">&copy; 2023 Udemy, Inc.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
